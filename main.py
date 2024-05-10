@@ -19,10 +19,12 @@ class Game:
         #self.map_rect = self.map_image.get_rect()
         self.tilemap_group = pg.sprite.Group()
         self.entities_group = pg.sprite.Group()
-        self.player = Player(group=self.entities_group, position=pg.math.Vector2(30,350), size=(90,60), context=self)
+        self.player = Player(group=self.entities_group, position=pg.math.Vector2(30,350), size=(32*1.5,32*1.5), context=self)
         self.entities_group.add(self.player)
         self.background_image_path = 'Assets/art/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png'
         self.camera_scroll = [0,0]
+        self.delta_time = 0
+        self.TARGET_FPS = 60
 
         self.gravity = 1
         
@@ -68,7 +70,7 @@ class Game:
                 self.player.acceleration.x= -Player.HORIZONTAL_ACCELERATION
 
         elif keys[pg.K_SPACE]:
-            self.player.velocity.y = -10
+            self.player.acceleration.y = -1
         
         
         
@@ -77,6 +79,7 @@ class Game:
     def run(self):
         self.load_map()
         while True:
+            self.delta_time = self.clock.tick(self.TARGET_FPS) *.001 * self.TARGET_FPS
             #self.screen.fill((3, 63, 133))
             self.draw_background_image()
             
@@ -86,6 +89,7 @@ class Game:
 
             self.entities_group.update()
             self.entities_group.draw(self.screen)
+            self.collide_text = f'FPS: {str(self.clock.get_fps())[:2]}'
             self.collide_text_render = self.font.render(self.collide_text, True, 'white')
             self.screen.blit(self.collide_text_render, (10, 35))
             pg.display.update()

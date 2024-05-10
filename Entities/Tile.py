@@ -10,6 +10,7 @@ class Tile(pg.sprite.Sprite):
         self.position = position
         self.type = 'Tile'
         
+        
         self.rect = self.image.get_rect(topleft =self.position)
         self.camera_scroll_vel = [0,0]
 

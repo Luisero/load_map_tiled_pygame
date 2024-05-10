@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="70" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="10">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="70" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="12">
  <tileset firstgid="1" source="../Tilesets/Terrain (32x32).tsx"/>
  <objectgroup id="2" name="Palms">
   <object id="9" x="704.366" y="191.999" width="63.0775" height="62.8009"/>
+  <object id="10" x="147.013" y="384.833" width="63.0775" height="62.8009"/>
+  <object id="11" x="244.763" y="289.833" width="63.0775" height="62.8009"/>
  </objectgroup>
  <layer id="1" name="World" width="70" height="20">
   <data encoding="csv">
